@@ -128,6 +128,45 @@ generic type
 ## '제네릭은 선언 시점이 아니라 생성 시점에 타입을 명시하여 하나의 타입만이 아닌 다양한 타입을 사용할 수 있도록 하는 기법이다.'
 
 
+4.0 객체지향
+TypeScirpt 에는 java처럼 객체지향 프로그래밍을 할 때 private나 public을 사용할 수 있다.
+TypeScript와 객체지향 프로그램이 가지고 있는 엄청 훌륭한 것은 추상클래스(Abstrack Class)다. 
+
+```ts
+abstract class User {
+  constructor(
+    private firstName: string,
+    private lastName: string,
+    public naickname: string
+  ) {}
+}
+
+class Player extends User {
+  
+}
+
+const sewon = new Player("sewon", "kim", "king");
+
+sewon.naickname;
+
+```
+추상클래스는 다른 클래스가 상속받을 수 있는 클래스다.
+하지만 이 클래스는 직접 새로운 인스턴스를 만들 수 없다.
+
+예를 들어 위에 코드에서 User라는 클래스를 만들었으나,
+``ts
+const sewon = new User("sewon", "kim", "king")
+```
+은 불가능하다.
+TypeScript가 추상클래스의 인스턴스를 만들 수 없다고 경고한다. 다시말하면, 추상클래스는 오직 다른 곳에서 상속받을수만 있는 클래스다.
+
+추상메소드는 추상클래스를 상속받는 모든 것들이 구현을 해야하는 메소드를 의미한다.
+
+![image](https://user-images.githubusercontent.com/101968934/222347085-6b8464c0-f4c3-47ab-9fcb-03bd1aae7d93.png)
+
+
+
+
 
 
 
