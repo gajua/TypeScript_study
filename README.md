@@ -154,13 +154,22 @@ sewon.naickname;
 하지만 이 클래스는 직접 새로운 인스턴스를 만들 수 없다.
 
 예를 들어 위에 코드에서 User라는 클래스를 만들었으나,
-``ts
+```ts
 const sewon = new User("sewon", "kim", "king")
 ```
 은 불가능하다.
 TypeScript가 추상클래스의 인스턴스를 만들 수 없다고 경고한다. 다시말하면, 추상클래스는 오직 다른 곳에서 상속받을수만 있는 클래스다.
 
 추상메소드는 추상클래스를 상속받는 모든 것들이 구현을 해야하는 메소드를 의미한다.
+```ts
+class Player extends User {
+  // 추상 메서드는 추상 클래스를 상속받는 클래스들이 반드시 구현(implement)해야하는 메서드이다.
+  getNickname() {
+    console.log(this.nickname);
+  }
+}
+
+```
 
 ![image](https://user-images.githubusercontent.com/101968934/222347085-6b8464c0-f4c3-47ab-9fcb-03bd1aae7d93.png)
 
