@@ -174,6 +174,34 @@ class Player extends User {
 ![image](https://user-images.githubusercontent.com/101968934/222347085-6b8464c0-f4c3-47ab-9fcb-03bd1aae7d93.png)
 
 
+```ts
+abstract class User {
+  constructor(
+    protected firstName: string,
+    protected lastName: string,
+    protected nickname: string
+  ) {}
+  abstract getNickname(): void;
+
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+}
+
+class Player3 extends User {
+  getNickname(): void {
+    console.log(this.nickname);
+  }
+}
+const nico = new Player3("nico", 'las', "니꼬")
+
+nico.getFullName()
+nico.getNickname()
+```
+**nickname() 메소드를 User클래스를 상속받는 모든 클래스에서 사용 가능하도록 만들고 싶다면 접근제한자를 private에서 protected로 바꾸면 된다.**
+
+**nickname() 메소드를 외부의 모든 곳에서 사용가능하게 만들려면 그냥 제한자를 지워주면(public)된다.**
+
 
 
 
