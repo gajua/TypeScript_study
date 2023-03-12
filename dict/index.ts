@@ -17,6 +17,16 @@ class Dict {
     return this.words[term];
   }
   //첼린지 : 여기에 단어를 삭제하고 단어를 업데이트하는 메소드를 만들기
+  del(term: string) {
+    if (this.words[term] !== undefined) {
+      delete this.words[term];
+    }
+  }
+  update(word: Word) {
+    if (this.words[word.term] !== undefined) {
+      this.words[word.term] = word.def;
+    }
+  }
 }
 
 class Word {
@@ -25,9 +35,9 @@ class Word {
 }
 // 그냥 클래스랑 메소드, 그리고 private이나 public같은 것들을 사용해서 뭔가를 만들기.
 
-const kimchi = new Word('kimchi', '한국의 음식');
+const kimchi = new Word("kimchi", "한국의 음식");
 
 const dict = new Dict();
 
 dict.add(kimchi);
-dict.def('kimchi');
+dict.def("kimchi");
